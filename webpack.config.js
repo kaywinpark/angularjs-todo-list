@@ -1,21 +1,11 @@
+const webpack = require('webpack');
 const path = require('path');
 
 
 const config = {
-    entry: './src/index.js',
-
-    output: {
-        path: path.join(__dirname, '/src'),
-        publicPath: "/",
-        filename: 'bundle.js'
+    entry: {
+        app: path.join(__dirname, 'src', 'index.js'),
     },
-
-    devServer: {
-        inline: true,
-        contentBase: "./src",
-        port: 8080
-    },
-
     module: {
         loaders: [
             {
@@ -24,10 +14,24 @@ const config = {
                 // Transpile .js files using babel-loader
                 // Compiles ES6 and ES7 into ES5 code
                 test: /\.js$/,
+                include: path.join(__dirname, 'src'),
                 loader: 'babel',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015']
+                }
             }
         ]
+    },
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js'
+    },
+    devServer: {
+        historyApiFallback: true,
+        contentBase: path.join(__dirname, 'dist'),
+        inline: true,
+        port: 8080
     }
 };
 
