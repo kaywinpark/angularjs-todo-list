@@ -1,7 +1,7 @@
-var path = require('path');
+const path = require('path');
 
 
-var config = {
+const config = {
     entry: './src/index.js',
 
     output: {
