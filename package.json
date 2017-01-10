@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/kaywinpark/angularjs-todo-list#readme",
   "dependencies": {
-    "angular": "^1.6.1"
+    "angular": "^1.6.1",
+    "bootstrap": "^3.3.7"
   },
   "devDependencies": {
     "babel": "^6.5.2",
